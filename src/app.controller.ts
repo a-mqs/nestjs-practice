@@ -1,6 +1,7 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 
+// Controller - Porta de entrada da aplicação, lida com requisições e respostas HTTP
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -8,5 +9,10 @@ export class AppController {
   @Get()
   getHello(): string {
     return this.appService.getHello();
+  }
+
+  @Post()
+  setHello(): string {
+    return 'POST: Hello World!';
   }
 }
